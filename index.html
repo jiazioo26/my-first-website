@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>我的个人作品集 | Web 开发学习者</title>
+
+    <meta
+    name="description"
+    content="这是我的个人网站，展示使用 HTML、CSS 和 JavaScript 制作的前端开发项目，以及我的编程学习经历。"
+    >
+
+
+  <!-- 加载 CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 加载 JavaScript -->
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#mainContent">
+        跳转到主要内容
+    </a>
+
+  <!-- 导航栏 -->
+  
+    <header class="navbar">
+
+    <a class="logo" href="#home">MyWebsite.</a>
+
+    <!-- 手机导航按钮 -->
+    <button
+        id="menuBtn"
+        class="menu-btn"
+        type="button"
+        aria-label="打开导航菜单"
+        aria-expanded="false"
+        aria-controls="primaryNav"
+    >
+        ☰
+    </button>
+
+    <!-- 导航链接 -->
+    <nav id="primaryNav" aria-label="主要导航">
+        <a href="#home">首页</a>
+        <a href="#about">关于我</a>
+        <a href="#projects">我的项目</a>
+        <a href="#contact">联系我</a>
+    </nav>
+
+    <!-- 深色模式按钮 -->
+    <button
+        id="themeBtn"
+        class="theme-btn"
+        type="button"
+        aria-label="切换深色模式"
+        aria-pressed="false"
+    >
+        🌙
+    </button>
+
+    </header>
+
+
+
+    <!-- 联系表单 -->
+    <section id="contact" class="section">
+
+    <h2>联系我</h2>
+
+    <p>有问题或者想交流？欢迎留言！</p>
+
+    <form id="contactForm" class="contact-form" novalidate>
+
+        <label for="contactName">你的名字</label>
+        <input
+        type="text"
+        id="contactName"
+        name="name"
+        placeholder="请输入名字"
+        minlength="2"
+        autocomplete="name"
+        required
+        >
+
+        <label for="contactEmail">电子邮箱</label>
+        <input
+        type="email"
+        id="contactEmail"
+        name="email"
+        placeholder="example@email.com"
+        autocomplete="email"
+        required
+        >
+
+        <label for="contactMessage">留言内容</label>
+        <textarea
+        id="contactMessage"
+        name="message"
+        rows="5"
+        placeholder="请输入至少10个字符..."
+        minlength="10"
+        required
+        ></textarea>
+
+        <button type="submit" class="primary-btn">
+        提交留言
+        </button>
+
+        <p id="formStatus" role="status" aria-live="polite"></p>
+
+    </form>
+
+    </section>
+
+  <!-- 首页 -->
+  <main id="mainContent" tabindex="-1"></main>
+    
+    <section id="home" class="hero">
+
+    <!-- 左侧介绍内容 -->
+    <div class="hero-content">
+
+        <div class="tag">
+         ✨ 欢迎来到我的网站
+        </div>
+
+        <h1>
+        你好，我是一名<br>
+        <span>网站开发学习者</span>
+        </h1>
+
+        <p>
+        我热爱编程、设计与创造。
+        我正在学习把自己的想法变成真正的网站。
+        </p>
+
+        <button id="helloBtn" class="primary-btn">
+        和我打个招呼 →
+        </button>
+
+        <p id="message" aria-live="polite"></p>
+
+    </div>
+
+    <!-- 右侧照片 -->
+    
+    <img
+    class="hero-image"
+    src="images/profile.jpg"
+    alt="产品"
+    width="776"
+    height="1024"
+    fetchpriority="high"
+    decoding="async"
+    >
+
+
+    </section>
+
+
+    <!-- 关于我 -->
+    <section id="about" class="section">
+      <h2>关于我</h2>
+      <p>
+        我喜欢技术、设计和创造。
+        这是我亲手制作的个人网站。
+      </p>
+    </section>
+
+    <!-- 项目展示 -->
+    <section id="projects" class="section">
+      <h2>我的项目</h2>
+
+    <div class="project-tools">
+
+    <div class="field">
+        <label for="projectSearch">搜索项目</label>
+        <input
+        type="search"
+        id="projectSearch"
+        placeholder="例如：HTML、网站"
+        >
+    </div>
+
+    <div class="field">
+        <label for="projectFilter">项目状态</label>
+        <select id="projectFilter">
+        <option value="all">全部项目</option>
+        <option value="finished">已完成</option>
+        <option value="planned">计划中</option>
+        </select>
+    </div>
+
+    </div>
+
+<p id="resultsCount" aria-live="polite"></p>
+
+      
+        <div class="cards">
+
+        <!-- 项目一 -->
+        <article class="card" data-status="finished">
+
+            <img
+            class="project-image"
+            src="images/project-1.png"
+            alt="我的第一个网站截图"
+            loading="lazy"
+            decoding="async"
+            >
+
+            <h3>我的第一个网站</h3>
+
+            <p>
+            使用 HTML、CSS 和 JavaScript
+            创建的响应式网页。
+            </p>
+
+            <details>
+            <summary>查看项目详情</summary>
+            <p>
+                这个项目包含导航栏、深色模式、
+                响应式布局和按钮互动功能。
+            </p>
+            </details>
+
+        </article>
+
+        <!-- 项目二 -->
+        <article class="card" data-status="planned">
+
+            <div class="project-placeholder">
+            🚀
+            </div>
+
+            <h3>我的下一个项目</h3>
+
+            <p>
+            计划制作一个更复杂的网站，
+            学习更多前端开发技术。
+            </p>
+
+            <details>
+            <summary>查看项目计划</summary>
+            <p>
+                下一步学习网站部署、表单、
+                更多 JavaScript 互动功能。
+            </p>
+            </details>
+
+        </article>
+
+        </div>
+        <p id="noResults" hidden>
+            没有找到符合条件的项目。
+        </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 MyWebsite. 用代码创造未来。</p>
+  </footer>
+
+</body>
+</html>

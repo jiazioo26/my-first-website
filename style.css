@@ -1,0 +1,515 @@
+
+/* 全局基础样式 */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: #f8faff;
+  color: #172033;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* 导航栏 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 8%;
+  background: white;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0ea5e9;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav a:hover {
+  color: #0ea5e9;
+}
+
+.theme-btn {
+  border: none;
+  background: #eef2ff;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* 首页大标题区域 */
+.hero {
+  min-height: 520px;
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(
+    135deg, #eef2ff, #fdf2f8
+  );
+}
+
+.tag {
+  display: inline-block;
+  background: white;
+  color: #0ea5e9;
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+h1 {
+  font-size: clamp(36px, 6vw, 60px);
+  line-height: 1.3;
+}
+
+h1 span {
+  color: #0ea5e9;
+}
+
+.hero p {
+  color: #64748b;
+  line-height: 1.8;
+}
+
+.primary-btn {
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+/* 内容区域 */
+.section {
+  max-width: 1050px;
+  margin: auto;
+  padding: 70px 25px;
+  text-align: center;
+}
+
+.section > p {
+  color: #64748b;
+  line-height: 1.8;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 35px;
+  text-align: left;
+  box-shadow: 0 8px 30px #0000000a;
+}
+
+.card-icon {
+  font-size: 36px;
+}
+
+.card p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #64748b;
+}
+
+/* 深色模式 */
+body.dark {
+  background: #101827;
+  color: #f8fafc;
+}
+
+.dark .navbar,
+.dark .card {
+  background: #1e293b;
+}
+
+.dark .hero {
+  background: linear-gradient(
+    135deg, #1e293b, #312e81
+  );
+}
+
+.dark .tag {
+  background: #334155;
+}
+
+/* 手机适配 */
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 18px 5%;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero {
+    padding: 75px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== 第三课：首页双栏布局 ===== */
+
+.hero {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr) minmax(240px, 400px);
+
+  align-items: center;
+  gap: 48px;
+
+  padding: 90px max(6%, 24px);
+  text-align: left;
+}
+
+/* 左侧文字 */
+.hero-content {
+  max-width: 620px;
+}
+
+/* 右侧图片 */
+.hero-image {
+  width: 100%;
+  height: 360px;
+
+  object-fit: cover;
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* 平板和手机布局 */
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 64px 24px;
+    gap: 24px;
+  }
+
+  .hero-image {
+    max-width: 360px;
+    height: 300px;
+    margin: 0 auto;
+  }
+}
+
+/* ===== 第三课：项目卡片 ===== */
+
+.card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.project-image,
+.project-placeholder {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+}
+
+.project-image {
+  object-fit: cover;
+}
+
+.project-placeholder {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    135deg, #c7d2fe, #fbcfe8
+  );
+  font-size: 64px;
+}
+
+.card details {
+  margin-top: 18px;
+}
+
+.card summary {
+  color: #6366f1;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 优化深色模式的文字对比度 */
+.dark .hero p,
+.dark .section > p,
+.dark .card p,
+.dark footer {
+  color: #cbd5e1;
+}
+
+.dark .tag {
+  color: #e0e7ff;
+}
+
+/* ===== 第四课：搜索与表单 ===== */
+
+/* 项目搜索区域 */
+.project-tools {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+  text-align: left;
+}
+
+.project-tools .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 输入框公共样式 */
+.project-tools input,
+.project-tools select,
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: white;
+  color: #172033;
+  font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+#resultsCount {
+  margin-top: 18px;
+}
+
+/* 被筛选隐藏的项目 */
+.card[hidden] {
+  display: none;
+}
+
+/* 联系表单 */
+.contact-form {
+  max-width: 650px;
+  margin: 30px auto 0;
+  padding: 30px;
+  background: white;
+  border-radius: 18px;
+  text-align: left;
+  box-shadow: 0 8px 30px #0000000a;
+}
+
+.contact-form label {
+  display: block;
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 20px;
+}
+
+#formStatus {
+  margin-top: 14px;
+}
+
+#formStatus.success {
+  color: #15803d;
+}
+
+#formStatus.error {
+  color: #b91c1c;
+}
+
+/* 深色模式 */
+.dark .contact-form {
+  background: #1e293b;
+}
+
+.dark .project-tools input,
+.dark .project-tools select,
+.dark .contact-form input,
+.dark .contact-form textarea {
+  background: #0f172a;
+  color: white;
+  border-color: #475569;
+}
+
+.dark #formStatus.success {
+  color: #86efac;
+}
+
+.dark #formStatus.error {
+  color: #fca5a5;
+}
+
+/* 手机适配 */
+@media (max-width: 600px) {
+  .project-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+}
+
+/* ===== 第五课：手机导航菜单 ===== */
+
+/* 默认电脑端不显示菜单按钮 */
+.menu-btn {
+  display: none;
+  background: #eef2ff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 窄屏幕菜单布局 */
+@media (max-width: 760px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 5%;
+  }
+
+  .navbar .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar nav {
+    display: none;
+    grid-column: 1 / -1;
+    order: initial;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .navbar nav.open {
+    display: flex;
+  }
+
+  .navbar nav a {
+    padding: 13px 4px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .dark .menu-btn {
+    background: #334155;
+    color: white;
+  }
+
+  .dark .navbar nav a {
+    border-color: #475569;
+  }
+}
+
+/* ===== 第五课：无障碍优化 ===== */
+
+/* 跳转到主要内容 */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 12px;
+  z-index: 1000;
+
+  padding: 12px 18px;
+  background: #312e81;
+  color: white;
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* 用键盘选择按钮、链接时显示焦点 */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+/* 尊重系统的减少动画设置 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
